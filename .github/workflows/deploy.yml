@@ -20,13 +20,9 @@ jobs:
       
       - name: Build Docker images and pull nginx
         run: |
-          docker compose build
-
-      - name: Build Docker images with Compose
-        run:
+          docker compose -f docker-compose.yaml build
           docker pull nginx:latest
-          docker compose build 
-
+      
       - name: Save images
         run: |
           docker save live_chat:latest -o live_chat.tar
