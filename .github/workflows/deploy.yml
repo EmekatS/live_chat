@@ -18,9 +18,9 @@ jobs:
         with:
           driver: docker
       
-            - name: Build Docker images and pull nginx
+      - name: Build Docker images and pull nginx
         run: |
-          # Force Compose to build using the local docker daemon so 'docker save' can see it
+          # Force Compose to build 
           docker compose -f docker-compose.yaml build --build-arg BUILDKIT_INLINE_CACHE=1
           
           # Manually pull nginx so it exists locally on the runner
