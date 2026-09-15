@@ -4,10 +4,9 @@ services:
     build: .
     container_name: live_chat_app
     restart: unless-stopped
-    # These ports are for internal communication only, not exposed to the host.
-    # They will be accessed by the Nginx container.
-    ports:
-      - "127.0.0.1:3030:3030"
+    # Just expose the port so other containers in the Docker network can see it.
+    expose:
+      - "3030" 
 
   # The Nginx reverse proxy
   nginx:
